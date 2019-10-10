@@ -9,6 +9,7 @@ import plotly.graph_objs as go
 from ECG.ecg import read_ecg
 import os
 import numpy as np 
+from scipy.signal import find_peaks
 
 file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "a01.dat")
 ra = read_ecg(file,0,1000)
@@ -24,7 +25,8 @@ app.layout = html.Div([
         step=1,
         value=[50, 150]
     ),
-    html.Div(id='output-container-range-slider')
+    html.H1(id='output-container-range-slider'),
+    html.H1(id='bpm')
 ])
 
 
@@ -32,9 +34,21 @@ app.layout = html.Div([
     dash.dependencies.Output('output-container-range-slider', 'children'),
     [dash.dependencies.Input('my-range-slider', 'value')])
 def update_output(value):
-    return 'You have selected "{}"'.format(value)
+    return f'Time range: [{value[0]/100} , {value[1]/100}] secs'
 
-
+@app.callback(
+    dash.dependencies.Output('bpm', 'children'),
+    [dash.dependencies.Input('my-range-slider', 'value')])
+def bpm(s):
+    global ra
+    y=ra[s[0]:s[1]]
+    dist = (s[1]-s[0])/100
+    peaks, _ = find_peaks(y,height=150 )
+    num_peaks = len(peaks)
+    if num_peaks ==1:
+        return "Nyquist limit violation please select a wider range."
+    else:
+        return f'bpm : {num_peaks*60/dist}'
 
 @app.callback(
     Output('graph', 'figure'),
@@ -43,15 +57,15 @@ def update_fig(s):
     traces = []
     global ra
     traces.append(go.Scatter(
-            x=np.arange(s[0],s[1]),
+            x=np.arange(s[0],s[1])/100,
             y=ra[s[0]:s[1]],
         ))
 
     return {
             'data': traces,
             'layout': go.Layout(
-                xaxis={'title': 'GDP Per Capita'},
-                yaxis={'title': 'Life Expectancy', 'range': [-200,350]},
+                xaxis={'title': 'Time (Sec)'},
+                yaxis={'title': 'A/D units', 'range': [-200,350]},
                 hovermode='closest'
             )
         }
