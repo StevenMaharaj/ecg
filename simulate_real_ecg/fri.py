@@ -17,6 +17,9 @@ ra = read_ecg(file,0,1000)
 app = dash.Dash()
 
 app.layout = html.Div([
+    html.H1("ECG a01.dat",style={
+            'textAlign': 'center',
+        }),
     dcc.Graph(id="graph"),
     dcc.RangeSlider(
         id='my-range-slider',
