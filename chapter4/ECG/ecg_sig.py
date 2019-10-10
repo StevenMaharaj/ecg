@@ -43,3 +43,20 @@ def butter_lowpass_filter(data, cutoff, fs, order=5):
     b, a = butter_lowpass(cutoff, fs, order=order)
     y = signal.filtfilt(b, a, data)
     return y
+
+def band_pass_filter(y,low=0.1,high=0.2,fps = 100):
+    """
+    Applies a butterworth band pass filter.
+
+    Parameters:
+    y (numpy array): input to be filtered
+    low (float): lower cut off frequency
+    high (float): higher cut off frequency
+    fps (int) : sampling rate
+
+    Returns:
+    numpy array: filtered data
+    """
+    y = butter_highpass_filter(y,low,fps)
+    y = butter_lowpass_filter(y,high,fps)
+    return y
