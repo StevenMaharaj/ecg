@@ -1,5 +1,6 @@
 import os
 from ECG.ecg import read_ecg
+from ECG.ecg_sig import band_pass_filter
 file  =  os.path.join(os.path.dirname(os.path.realpath(__file__)),"a01.dat")
 filer  =  os.path.join(os.path.dirname(os.path.realpath(__file__)),"a01r.dat")
 import matplotlib.pyplot as plt
@@ -17,13 +18,12 @@ yr = read_ecg(filer,0,eventsr)
 RespN = yr[2::4]
 x = np.arange(len(RespN))/100
 
-
-
 fig, ax = plt.subplots(nrows=4)
 
+RespN_fil = band_pass_filter(RespN,low=0.1,high = 0.5)
 
 for i in range(4):
-    ax[i].plot(x[10000*(i):10000*(i+1)],RespN[10000*(i):10000*(i+1)],label = "RespN")
+    ax[i].plot(x[10000*(i):10000*(i+1)],RespN_fil[10000*(i):10000*(i+1)],label = "RespN filtered")
     ax[i].hlines(0,min(x[10000*(i):10000*(i+1)]),max(x[10000*(i):10000*(i+1)]),label = "Zero line")
 
 
@@ -32,6 +32,6 @@ plt.legend(loc="lower left")
 plt.tight_layout()
 path = os.path.dirname(os.path.realpath(__file__))
 
-plt.savefig(os.path.join(path,"fig/many_sample_resp"),dpi = 250)
+plt.savefig(os.path.join(path,"fig/many_sample_resp_fil"),dpi = 250)
 
 plt.show()
