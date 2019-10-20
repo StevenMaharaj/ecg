@@ -27,7 +27,7 @@ for i in range(4):
     ax[i].hlines(0,min(x[10000*(i):10000*(i+1)]),max(x[10000*(i):10000*(i+1)]),label = "Zero line")
 
 
-plt.xlabel("TIme (Sec)")
+plt.xlabel("Time (Sec)")
 plt.legend(loc="lower left")
 plt.tight_layout()
 path = os.path.dirname(os.path.realpath(__file__))
