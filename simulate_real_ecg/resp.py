@@ -54,7 +54,7 @@ def bpm(s):
     if num_peaks ==1:
         return "Nyquist limit violation please select a wider range."
     else:
-        return f'bpm : {num_peaks*60/dist}'
+        return f'breaths per minute : {num_peaks*60/dist}'
 
 @app.callback(
     Output('graph', 'figure'),
