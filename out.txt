@@ -1,28 +1,3 @@
-# A Machine Learning approach to Predict Respiratory Rates from ECGs
-
-Author : Steven Maharaj 695281
-
-In this this README file will outline the the structure of the ecg repository.
-
-## Software requirements
-Most of the code requires the following software
-- python 3.7
-- numpy
-- pandas
-- Scipy
-- The ECG package developed in this project
-- seaborn
-- matplotlib
-
-In order to run the neural Net ([NN_2.ipynb](https://github.com/StevenMaharaj/ecg/blob/master/predictions/NN_2.ipynb))
-- Tensorflow 2.0 (CPU version)
-
-In order to run the web applications ([ECG](https://github.com/StevenMaharaj/ecg/blob/master/simulate_real_ecg/fri.py) and [Resp](https://github.com/StevenMaharaj/ecg/blob/master/simulate_real_ecg/resp.py))
-- plotly 
-- dash
-
-## File Structure
-<pre>
 .
 ├── A1
 │   ├── Correlations.ipynb
@@ -281,11 +256,3 @@ In order to run the web applications ([ECG](https://github.com/StevenMaharaj/ecg
     └── sendextut.py
 
 38 directories, 217 files
-</pre>
- 
-## Import Directories
-
-- 
-
-
- 
