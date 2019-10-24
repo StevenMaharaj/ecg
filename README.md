@@ -10,6 +10,7 @@ Most of the code requires the following software
 - numpy
 - pandas
 - Scipy
+- sklearn
 - The ECG package developed in this project
 - seaborn
 - matplotlib
@@ -284,8 +285,32 @@ In order to run the web applications ([ECG](https://github.com/StevenMaharaj/ecg
 </pre>
  
 ## Import Directories
+- [ECG](https://github.com/StevenMaharaj/ecg/blob/master/ECG) - The ECG package -  Documentation is self-contained
 
-- 
+- [A1](https://github.com/StevenMaharaj/ecg/blob/master/A1) - contains the code for heat map correlations. Appendix A of the report.
 
+- [Chapter 2](https://github.com/StevenMaharaj/ecg/blob/master/chapter2) - The code used  to generate all figures, tables and results from chapter 2.
+    * [binaryex.py](https://github.com/StevenMaharaj/ecg/blob/master/chapter2/binaryex.py) - read binary data
+    * [get_features.py](https://github.com/StevenMaharaj/ecg/blob/master/chapter2/get_features.py) - example of getting features
+
+- [Chapter 4](https://github.com/StevenMaharaj/ecg/blob/master/chapter4) - The code used to generate all figures, tables and results from chapter 4. 
+    * [fourier.py](https://github.com/StevenMaharaj/ecg/blob/master/chapter4/fourier.py) - Fourier analysis
+    * [re_many_samples.py](https://github.com/StevenMaharaj/ecg/blob/master/chapter4/re_many_samples.py) - plot respiratory data
+    * [re_many_samples_fil.py](https://github.com/StevenMaharaj/ecg/blob/master/chapter4/re_many_samples_fil.py) - plot filtered respiratory data
+
+- [initial_project](https://github.com/StevenMaharaj/ecg/blob/master/initial_project) - Code for first month of project. It shows basic examples and tests
+
+- [predictions](https://github.com/StevenMaharaj/ecg/blob/master/predictions) - Code for machine learing algorthims.
+    * [18oct.ipynb](https://github.com/StevenMaharaj/ecg/blob/master/predictions/18oct.ipynb) - Data preprocessing
+    * [fit_model.ipynb](https://github.com/StevenMaharaj/ecg/blob/master/predictions/fit_model.ipynb) - Fitting the SVM, Random forest and elestic net.
+    * [NN_2.ipynb](https://github.com/StevenMaharaj/ecg/blob/master/predictions/NN_2.ipynb) - Fitting neural net.
+    * [grid_search.ipynb](https://github.com/StevenMaharaj/ecg/blob/master/predictions/grid_search.ipynb) - Grid search
+
+- [simulate_real_ecg](https://github.com/StevenMaharaj/ecg/blob/master/simulate_real_ecg) - contains web applications.
+    * [fri.py](https://github.com/StevenMaharaj/ecg/blob/master/simulate_real_ecg/fri.py) - ECG app
+    * [resp.py](https://github.com/StevenMaharaj/ecg/blob/master/simulate_real_ecg/resp.py) - Respiratory app
+
+
+- [Steven_Maharaj_695281_code_task_1](https://github.com/StevenMaharaj/ecg/blob/master/Steven_Maharaj_695281_code_task_1) - Random number generator assignment.
 
  
